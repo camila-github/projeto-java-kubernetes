@@ -4,7 +4,7 @@ metadata:
   name: mysql
   namespace: dev-to
 spec:
-  ports:
+  ports:  
     - port: 3306
   selector:
     app: mysql

@@ -37,6 +37,7 @@ public class UserService {
     public List<User> findAll() {
         List<User> people = new ArrayList<>();
         Iterator<User> iterator = userRepository.findAll().iterator();
+
         iterator.forEachRemaining(people::add);
         return people;
     }

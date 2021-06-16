@@ -66,22 +66,17 @@ k-build-app:
 k-build-image:
 	eval $$(minikube -p dev.to docker-env) && docker build --force-rm -t java-k8s .;
 
-k-deploy-app:
-	kubectl apply -f k8s/app/;
+k-deploy-app: kubectl apply -f k8s/app/;
 
-k-delete-app:
-	kubectl delete -f k8s/app/;
+k-delete-app: kubectl delete -f k8s/app/;
 
-k-start:
-	minikube -p dev.to start;
+k-start: minikube -p dev.to start;
 
 k-all: k-setup k-deploy-db k-build-app k-build-image k-deploy-app
 
-k-stop:
-	minikube -p dev.to stop;
+k-stop:	minikube -p dev.to stop;
 
-k-delete:
-	minikube -p dev.to stop && minikube -p dev.to delete
+k-delete: minikube -p dev.to stop && minikube -p dev.to delete
 
 check:
 	echo "make version " && make --version && echo
